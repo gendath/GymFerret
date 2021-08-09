@@ -22,15 +22,20 @@ app.set("view engine","ejs")
 app.get("/",(req,res)=>{
     res.render("home")
 })
-app.get("/gym",async (req,res)=>{
-    const gym = new Gym({
-        name:"Perry's Garage",
-        price: 10.99,
-        description:"A dirt, nasty garage. Free tetanus with every visit!"
-
-    })
-    await gym.save()
-    res.send("Gym")
+app.get("/gyms",async (req,res)=>{
+    const gyms = await Gym.find({})
+     res.render("gyms/index",{gyms})
+})
+app.get("/gyms/new",async (req,res)=>{
+     res.send("Gym")
+})
+app.get("/gyms/:id",async (req,res)=>{
+    const {id} = req.params
+    const gym = await Gym.findById(id)
+     res.render("gyms/show",{gym})
+})
+app.get("/gyms/:id/edit",async (req,res)=>{
+     res.send("Gym")
 })
 
 

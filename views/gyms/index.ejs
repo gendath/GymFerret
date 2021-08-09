@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyms</title>
+</head>
+<body>
+    <h1>All Gyms</h1>
+
+        <% for(gym of gyms) {%>
+            
+            <h3><a href="/gyms/<%=gym.id %>"><%= gym.name %></a></h3>
+            <ul>
+            <li><%= gym.price %> </li>
+            <li><%= gym.location %> </li>
+            <li><%= gym.description %> </li>
+            </ul>
+        <% } %>
+
+</body>
+</html>
