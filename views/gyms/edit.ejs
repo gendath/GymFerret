@@ -1,16 +1,38 @@
 <% layout("layouts/boilerplate") %> 
-    <h1>Edit <%= gym.name %> </h1>
-    <form action="/gyms/<%=gym.id %>?_method=PUT" method="post">
-        <label for="name">Name:</label>
-        <input type="text" value = "<%= gym.name %>" name="gym[name]" id="name" placeholder = "Enter a name for your gym">
-        <br>
-        <label for="price" >Price:</label>
-        <input type="Number" value = "<%= gym.price %>" name="gym[price]" id="price"><br>
-        <label for="location">Location:</label>
-        <input type="text" value = "<%= gym.location %>" name="gym[location]" id="location" placeholder="Gym Location">
-        <br>
-        <label for="description">Description:</label><br>
-        <textarea name="gym[description]" id="description" cols="90" rows="10"><%= gym.description %> </textarea>
-        <br>
-        <button>Submit</button>
-    </form>
+
+
+
+<div class="row">
+    <h1 class="text-center">Edit <%= gym.name %></h1>
+    <div class="col-6 offset-3">
+        <form action="/gyms/<%=gym.id %>?_method=PUT" method="post"  class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="name" class="form-label" >Name:</label>
+                <input type="text"class ="form-control" name="gym[name]" id="name" placeholder = "Enter a name for your gym" value="<%=gym.name%>" required>    
+            </div>
+             <div class="mb-3">
+                <label for="price" class="form-label">Price:</label>
+                <input type="Number" class="form-control" name="gym[price]" id="price" value="<%=gym.price%>" required>
+             </div>           
+            <div class="mb-3">
+                <label for="location" class="form-label">Location:</label>
+                <input type="text" class="form-control" name="gym[location]" id="location" placeholder="Gym Location" value="<%=gym.location%>" required>
+                
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image Url:</label>
+                <input type="text" class="form-control" name="gym[image]" id="image" placeholder="Gym Image Url" value="<%=gym.image%>" required>
+                
+            </div>
+            <div class="mb-3">
+
+                <label for="description" class="form-label">Description:</label><br>
+                <textarea name="gym[description]" class="form-control" id="description" required><%=gym.description%></textarea>
+                
+            </div>
+
+            <button class = "btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<script src="/js/validation.js"></script>
