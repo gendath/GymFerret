@@ -1,23 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gyms</title>
-</head>
-<body>
+<% layout("layouts/boilerplate") %> 
     <h1>All Gyms</h1>
-
+<div class="row">
         <% for(gym of gyms) {%>
-            
-            <h3><a href="/gyms/<%=gym.id %>"><%= gym.name %></a></h3>
-            <ul>
-            <li><%= gym.price %> </li>
-            <li><%= gym.location %> </li>
-            <li><%= gym.description %> </li>
-            </ul>
-        <% } %>
 
-</body>
-</html>
+            <div class="card mb-3">
+                <div class="row">
+                    <div class="col-md-4 p-3">
+                    <img class="img-fluid" src="<%= gym.image %>" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body col-md-8">
+                        
+                        <h5 class="card-title"><%= gym.name %>   -   <%= gym.location %>  - <a  class = "float-end" href="/gyms/<%= gym.id %>">View</a></h5>
+                        <p class="card-text"><%= gym.description %></p>
+                        <a href="/gyms" class="btn btn-primary">Go Back</a>
+                        <span class="d-inline-block float-end">
+                        <a href="/gyms/<%= gym.id %>/edit" class="btn btn-warning">edit</a>
+                        <form class="d-inline-block" action="/gyms/<%= gym.id %>?_method=DELETE" method="post">
+                            <button class="btn btn-danger">X</button></form>
+                        </span>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+
+
+        <% } %>

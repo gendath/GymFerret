@@ -1,26 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a Gym</title>
-</head>
-<body>
+<% layout("layouts/boilerplate") %> 
     <h1>Edit <%= gym.name %> </h1>
     <form action="/gyms/<%=gym.id %>?_method=PUT" method="post">
         <label for="name">Name:</label>
-        <input type="text" value = "<%= gym.name %>" name="name" id="name" placeholder = "Enter a name for your gym">
+        <input type="text" value = "<%= gym.name %>" name="gym[name]" id="name" placeholder = "Enter a name for your gym">
         <br>
         <label for="price" >Price:</label>
-        <input type="Number" value = "<%= gym.price %>" name="price" id="price"><br>
+        <input type="Number" value = "<%= gym.price %>" name="gym[price]" id="price"><br>
         <label for="location">Location:</label>
-        <input type="text" value = "<%= gym.location %>" name="location" id="location" placeholder="Gym Location">
+        <input type="text" value = "<%= gym.location %>" name="gym[location]" id="location" placeholder="Gym Location">
         <br>
         <label for="description">Description:</label><br>
-        <textarea name="description" id="description" cols="90" rows="10"><%= gym.description %> </textarea>
+        <textarea name="gym[description]" id="description" cols="90" rows="10"><%= gym.description %> </textarea>
         <br>
         <button>Submit</button>
     </form>
-</body>
-</html>

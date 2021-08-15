@@ -12,7 +12,8 @@ const gymSchema = new Schema({
         },
     price:{
         type:Number,
-        required:true
+        required:[true,"Invalid Price"],
+        min:[0,"Minimum price is 0"]
     },
     description:{
         type:String,
@@ -20,8 +21,13 @@ const gymSchema = new Schema({
     },
     location:{
         type:String
+    },
+    image:{
+        type: String,
+        default:"https://source.unsplash.com/1600x900/?gym,garage"
     }
     }
 )
+
 
 module.exports = mongoose.model("Gym",gymSchema)

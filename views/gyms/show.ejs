@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= gym.name %></title>
-</head>
-<body>
-    <h1><%= gym.name %> </h1>
-    <p><%= gym.location %> </p>
+<% layout("layouts/boilerplate") %> 
 
-    <form action="/gyms/<%= gym.id %>?_method=DELETE" method="post">
-    <button>Delete</button></form>
+    <div class="card" style="width:100%;">
+        <img src="<%= gym.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><%= gym.name %>   -   <%= gym.location %> </h5>
+            <p class="card-text"><%= gym.description %></p>
+            <a href="/gyms" class="btn btn-primary">Go Back</a>
+            <span class="d-inline-block float-end">
+            <a href="/gyms/<%= gym.id %>/edit" class="btn btn-warning">edit</a>
+            <form class="d-inline-block" action="/gyms/<%= gym.id %>?_method=DELETE" method="post">
+                <button class="btn btn-danger">X</button></form>
+            </span>
+        </div>
+    </div>
+
     
-</body>
-</html>
+    
