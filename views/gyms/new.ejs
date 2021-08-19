@@ -1,40 +1,69 @@
-<% layout("layouts/boilerplate") %> 
+<% layout("layouts/boilerplate") %>
 
-<div class="row">
-    <h1 class="text-center">New Gym</h1>
-    <div class="col-6 offset-3">
-        <form action="/gyms" method="post" class="needs-validation" novalidate>
-            <div class="mb-3">
-                <label for="name" class="form-label" >Name:</label>
-                <input type="text" class ="form-control" name="gym[name]" id="name" placeholder = "Enter a name for your gym" required>    
-                <div class="invalid-feedback">
-                    Please enter a valid name for your gym.
-                  </div>
-            </div>
+<div class="row mt-5">
+  <h1 class="text-center">New Gym</h1>
+  <div class="col-6 offset-3">
+    <form action="/gyms" method="post" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="gym[name]"
+          id="name"
+          placeholder="Enter a name for your gym"
+          required
+        />
+        <div class="invalid-feedback">
+          Please enter a valid name for your gym.
+        </div>
+      </div>
 
-             <div class="mb-3">
-                <label for="price" class="form-label">Price:</label>
-                <input type="Number" class="form-control" value="0" name="gym[price]" id="price" required>
-             </div>           
-            <div class="mb-3">
-                <label for="location" class="form-label">Location:</label>
-                <input type="text" class="form-control" name="gym[location]" id="location" placeholder="Gym Location" required>
-                
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Image Url:</label>
-                <input type="text" class="form-control" name="gym[image]" id="image" placeholder="Gym Image Url" required>
-                
-            </div>
-            <div class="mb-3">
+      <div class="mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input
+          type="Number"
+          class="form-control"
+          value="0"
+          name="gym[price]"
+          id="price"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="gym[location]"
+          id="location"
+          placeholder="Gym Location"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image Url:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="gym[image]"
+          id="image"
+          placeholder="Gym Image Url"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label><br />
+        <textarea
+          name="gym[description]"
+          class="form-control"
+          id="description"
+          required
+        ></textarea>
+      </div>
 
-                <label for="description" class="form-label">Description:</label><br>
-                <textarea name="gym[description]" class="form-control" id="description" required></textarea>
-                
-            </div>
-
-            <button class = "btn btn-primary">Submit</button>
-        </form>
-    </div>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </div>
 <script src="/js/validation.js"></script>

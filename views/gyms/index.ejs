@@ -1,29 +1,51 @@
-<% layout("layouts/boilerplate") %> 
-    <h1>All Gyms</h1>
-<div class="row">
-        <% for(gym of gyms) {%>
+<% layout("layouts/boilerplate") %>
 
-            <div class="card mb-3">
-                <div class="row">
-                    <div class="col-md-4 p-3">
-                    <img class="img-fluid" src="<%= gym.image %>" class="card-img-top" alt="...">
-                    </div>
-                    <div class="card-body col-md-8">
-                        
-                        <h5 class="card-title"><%= gym.name %>   -   <%= gym.location %>  - <a  class = "float-end" href="/gyms/<%= gym.id %>">View</a></h5>
-                        <p class="card-text"><%= gym.description %></p>
-                        <a href="/gyms" class="btn btn-primary">Go Back</a>
-                        <span class="d-inline-block float-end">
-                        <a href="/gyms/<%= gym.id %>/edit" class="btn btn-warning">edit</a>
-                        <form class="d-inline-block" action="/gyms/<%= gym.id %>?_method=DELETE" method="post">
-                            <button class="btn btn-danger">X</button></form>
-                        </span>
-                    </div>
-                </div>
-                </div>
-            </div>
+<div class="container mt-5">
+  <h1 class="text-center mb-5">All Gyms</h1>
+  <div class="row">
+    <% for(gym of gyms) {%>
 
+    <div class="card mb-3 border border-0">
+      <div class="row">
+        <div class="col-md-4 p-3">
+          <img
+            class="img-fluid"
+            src="<%= gym.image %>"
+            class="card-img-top"
+            alt="<%= gym.name %>"
+          />
+        </div>
+        <div class="card-body col-md-8">
+          <h5 class="card-title">
+            <%= gym.name %> - <%= gym.location %> -
+            <a class="float-end" href="/gyms/<%= gym.id %>">View</a>
+          </h5>
+          <hr />
+          <p class="card-text"><%= gym.description %></p>
+          <hr />
+        </div>
+      </div>
+      <div class="row mb-1">
+        <div class="col-12">
+          <a href="/gyms" class="btn btn-primary">Book</a
+          ><span class="mx-3">$<%=gym.price%>/night</span>
+          <span class="d-inline-block float-end">
+            <a href="/gyms/<%= gym.id %>/edit" class="btn btn-warning">edit</a>
+            <form
+              class="d-inline-block"
+              action="/gyms/<%= gym.id %>?_method=DELETE"
+              method="post"
+            >
+              <button class="btn btn-danger">X</button>
+            </form>
+          </span>
+        </div>
+      </div>
+    </div>
 
+    <hr />
+    <hr />
 
-
-        <% } %>
+    <% } %>
+  </div>
+</div>

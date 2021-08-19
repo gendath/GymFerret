@@ -1,18 +1,76 @@
-<% layout("layouts/boilerplate") %> 
-
-    <div class="card" style="width:100%;">
-        <img src="<%= gym.image %>" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title"><%= gym.name %>   -   <%= gym.location %> </h5>
+<% layout("layouts/boilerplate") %>
+<div class="container">
+  <div class="row mt-5">
+    <div class="card col-8 offset-2 p-0">
+      <img src="<%= gym.image %>" class="card-img-top" alt="..." />
+      <div class="card-body p-0 rounded">
+        <ul class="list-group m-0">
+          <li class="list-group-item">
+            <div class="container-fluid">
+              <div class="col-12 text-center"><h2><%= gym.name %></h2></div>
+              <div class="col-12 text-center"><%= gym.location %></div>
+              <div class="col-122 text-center">$<%= gym.price %>/night</div>
+            </div>
+          </li>
+          <li class="list-group-item">
             <p class="card-text"><%= gym.description %></p>
+          </li>
+          <li class="list-group-item">
             <a href="/gyms" class="btn btn-primary">Go Back</a>
             <span class="d-inline-block float-end">
-            <a href="/gyms/<%= gym.id %>/edit" class="btn btn-warning">edit</a>
-            <form class="d-inline-block" action="/gyms/<%= gym.id %>?_method=DELETE" method="post">
-                <button class="btn btn-danger">X</button></form>
+              <a href="/gyms/<%= gym.id %>/edit" class="btn btn-warning"
+                >edit</a
+              >
+              <form
+                class="d-inline-block"
+                action="/gyms/<%= gym.id %>?_method=DELETE"
+                method="post"
+              >
+                <button class="btn btn-danger">X</button>
+              </form>
             </span>
-        </div>
+          </li>
+          <li class="list-group-item">Add a review:</li>
+          <li class="list-group-item">
+            <form
+              class="mb-3 needs-validation"
+              action="/gyms/<%=gym.id%>/reviews"
+              method="post"
+              novalidate
+            >
+              <label class="form-label" for="rating">Rating</label>
+              <input
+                class="d-inline form-control"
+                type="range"
+                min="1"
+                max="5"
+                name="review[rating]"
+                id="rating"
+              />
+              <label class="form-label" for="body">New Review:</label>
+              <textarea
+                class="form-control"
+                name="review[body]"
+                id="body"
+                required
+              ></textarea>
+              <button class="btn btn-success text-center">
+                Submit a Review
+              </button>
+            </form>
+          </li>
+          <li class="list-group-item">Reviews:</li>
+          <li class="list-group-item">
+            <% for( let review of gym.reviews) { %>
+            <div class="text-muted">
+              <%= review.rating %> --- <%= review.body %> - Mike Lidell
+            </div>
+            <% } %>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    
-    
+    <script src="/js/validation.js"></script>
+  </div>
+</div>

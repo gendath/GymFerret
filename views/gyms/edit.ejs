@@ -1,38 +1,76 @@
-<% layout("layouts/boilerplate") %> 
+<% layout("layouts/boilerplate") %>
 
+<div class="row mt-5">
+  <h1 class="text-center">Edit <%= gym.name %></h1>
+  <div class="col-6 offset-3">
+    <form
+      action="/gyms/<%=gym.id %>?_method=PUT"
+      method="post"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="gym[name]"
+          id="name"
+          placeholder="Enter a name for your gym"
+          value="<%=gym.name%>"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input
+          type="Number"
+          min="0"
+          class="form-control"
+          name="gym[price]"
+          id="price"
+          value="<%=gym.price%>"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="location" class="form-label">Location:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="gym[location]"
+          id="location"
+          placeholder="Gym Location"
+          value="<%=gym.location%>"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image Url:</label>
+        <input
+          type="text"
+          class="form-control"
+          name="gym[image]"
+          id="image"
+          placeholder="Gym Image Url"
+          value="<%=gym.image%>"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description:</label><br />
+        <textarea
+          name="gym[description]"
+          class="form-control"
+          id="description"
+          required
+        >
+<%=gym.description%></textarea
+        >
+      </div>
 
-
-<div class="row">
-    <h1 class="text-center">Edit <%= gym.name %></h1>
-    <div class="col-6 offset-3">
-        <form action="/gyms/<%=gym.id %>?_method=PUT" method="post"  class="needs-validation" novalidate>
-            <div class="mb-3">
-                <label for="name" class="form-label" >Name:</label>
-                <input type="text"class ="form-control" name="gym[name]" id="name" placeholder = "Enter a name for your gym" value="<%=gym.name%>" required>    
-            </div>
-             <div class="mb-3">
-                <label for="price" class="form-label">Price:</label>
-                <input type="Number" class="form-control" name="gym[price]" id="price" value="<%=gym.price%>" required>
-             </div>           
-            <div class="mb-3">
-                <label for="location" class="form-label">Location:</label>
-                <input type="text" class="form-control" name="gym[location]" id="location" placeholder="Gym Location" value="<%=gym.location%>" required>
-                
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Image Url:</label>
-                <input type="text" class="form-control" name="gym[image]" id="image" placeholder="Gym Image Url" value="<%=gym.image%>" required>
-                
-            </div>
-            <div class="mb-3">
-
-                <label for="description" class="form-label">Description:</label><br>
-                <textarea name="gym[description]" class="form-control" id="description" required><%=gym.description%></textarea>
-                
-            </div>
-
-            <button class = "btn btn-primary">Submit</button>
-        </form>
-    </div>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </div>
 </div>
 <script src="/js/validation.js"></script>

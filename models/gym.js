@@ -25,7 +25,14 @@ const gymSchema = new Schema({
     image:{
         type: String,
         default:"https://source.unsplash.com/1600x900/?gym,garage"
-    }
+    },
+    reviews:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Review"
+        }
+
+    ]
     }
 )
 
