@@ -1,38 +1,47 @@
 /*
 light green: #7ed56f
 medium green: #55c57a
-dark green: #28b485
+dark green: #0f4f39
 
 */
 
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
-
+.card,
+.btn {
+  font-size: 1.6rem;
+}
+html {
+  font-size: 62.5%;
+}
 body {
   font-family: "lato", sans-serif;
   font-weight: 400;
-  padding: 5px;
-  font-size: 16px;
+  padding: 2rem;
   line-height: 1.7;
   color: #777;
+  box-sizing: border-box;
 }
 /* .frame  {
     background-color: purple;
 } */
 .navbar {
   background-color: #0f4f39;
+  border-radius: 1rem;
 }
 .navbar-brand img {
-  padding-left: 30px;
-  height: 60px;
+  padding-left: 3rem;
+  height: 6rem;
   border-radius: 50%;
 }
 .nav-item {
-  padding: 5px 20px;
-  font-size: 2em;
+  padding: 0.5rem 2rem;
+  font-size: 2rem;
 }
 .header {
   position: relative;
@@ -43,15 +52,16 @@ body {
   background-position: top;
   background-size: cover;
   clip-path: polygon(0 0%, 100% 0, 100% 85%, 0 100%);
+  border-radius: 1rem;
 }
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .heading-box {
@@ -69,9 +79,9 @@ body {
 }
 .primary-heading-top {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 30px;
+  letter-spacing: 3rem;
   animation-name: moveInLeft;
   animation-duration: 0.75s;
   animation-timing-function: ease-out;
@@ -79,27 +89,32 @@ body {
 
 .primary-heading-bottom {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 13px;
+  letter-spacing: 1.3rem;
   animation-name: moveInRight;
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
-  margin-bottom: 60px;
+  animation-delay: 0.1s;
+  margin-bottom: 6rem;
 }
 .heading-button:link,
 .heading-button:visited {
   text-transform: uppercase;
   text-decoration: none;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
   position: relative;
-  animation: moveInBottom 0.75s ease-in;
+  font-size: 3rem;
+}
+.heading-button-animated {
+  animation: moveInBottom 0.75s ease-in 0.75s;
+  animation-fill-mode: backwards;
 }
 .heading-button:hover {
-  transform: translateY(-3px) translateX(-1px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.03rem) translateX(-0.01rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   color: #28b485;
 }
 .heading-button:hover::after {
@@ -108,14 +123,14 @@ body {
 }
 .heading-button:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
 .heading-button::after {
   content: "";
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -125,7 +140,7 @@ body {
 .heading-button-white {
   background-color: #fff;
   color: #777;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
 }
 .heading-button-white::after {
   background-color: #fff;
@@ -133,10 +148,10 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
   100% {
     opacity: 1;
@@ -146,10 +161,10 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   80% {
-    transform: translateX(-5px);
+    transform: translateX(-0.5rem);
   }
   100% {
     opacity: 1;
@@ -159,10 +174,10 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(100px) rotateX(-90deg);
+    transform: translateY(10rem) rotateX(-90deg);
   }
   80% {
-    transform: translateY(-5px) rotateX(10deg);
+    transform: translateY(-0.5rem) rotateX(10deg);
   }
   100% {
     opacity: 1;
